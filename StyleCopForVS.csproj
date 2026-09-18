@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>StyleCopForVS</RootNamespace>
+    <AssemblyName>StyleCopForVS</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <PlatformTarget>x64</PlatformTarget>
+    <Platforms>x64</Platforms>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+
+    <!-- VSSDK / VSIX build settings. The same VSIX is accepted by VS2022 and VS2026. -->
+    <VSSDKBuildToolsAutoSetup>true</VSSDKBuildToolsAutoSetup>
+    <UseCodebase>true</UseCodebase>
+    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <VsixDeployOnDebug>true</VsixDeployOnDebug>
+    <Version>0.0.1</Version>
+    <Authors>StyleCopForVS contributors</Authors>
+    <Description>StyleCop Classic 4.7 diagnostics in the Visual Studio C# editor.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>pdbonly</DebugType>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="samples\**" />
+    <EmbeddedResource Remove="samples\**" />
+    <None Remove="samples\**" />
+
+    <ProjectCapability Include="CreateVsixContainer" />
+    <Reference Include="System.ComponentModel.Composition" />
+
+    <!-- VS 2022 SDK reference assemblies are compatible with VS 2026's VSSDK surface. -->
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.14.40265" ExcludeAssets="runtime" />
+    <!-- 18.5 is the SDK-style VSIX build toolset used by VS 2026. -->
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="18.5.40034" PrivateAssets="all" />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="StyleCop">
+      <HintPath>lib\StyleCop.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="StyleCop.CSharp">
+      <HintPath>lib\StyleCop.CSharp.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="StyleCop.CSharp.Rules">
+      <HintPath>lib\StyleCop.CSharp.Rules.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <None Update="source.extension.vsixmanifest">
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="THIRD-PARTY-NOTICES.txt">
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Settings.StyleCop">
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <TargetPath>Settings.StyleCop</TargetPath>
+    </Content>
+  </ItemGroup>
+
+</Project>

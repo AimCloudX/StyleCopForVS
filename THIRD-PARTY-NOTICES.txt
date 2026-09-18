@@ -1,0 +1,8 @@
+This extension redistributes StyleCop Classic 4.7.55 assemblies from the
+StyleCop NuGet packages. StyleCop is licensed under the Microsoft Public
+License (MS-PL). The original project and license are available at:
+
+https://github.com/StyleCop/StyleCop
+
+The Visual Studio SDK assemblies are provided by Microsoft and remain part
+of the Visual Studio SDK distribution.

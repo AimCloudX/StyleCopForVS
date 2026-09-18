@@ -1,0 +1,6 @@
+bin/
+obj/
+.stylecop-source/
+.stylecop-build/
+.vs/
+.idea/

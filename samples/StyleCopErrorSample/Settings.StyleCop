@@ -1,0 +1,66 @@
+<StyleCopSettings Version="4.3">
+  <GlobalSettings>
+    <BooleanProperty Name="RulesEnabledByDefault">false</BooleanProperty>
+    <BooleanProperty Name="ViolationsAsErrors">true</BooleanProperty>
+  </GlobalSettings>
+  <Parsers>
+    <Parser ParserId="StyleCop.CSharp.CsParser">
+      <ParserSettings>
+        <CollectionProperty Name="GeneratedFileFilters">
+          <Value>\.g\.cs$</Value>
+          <Value>\.generated\.cs$</Value>
+          <Value>\.g\.i\.cs$</Value>
+          <Value>TemporaryGeneratedFile_.*\.cs</Value>
+        </CollectionProperty>
+      </ParserSettings>
+    </Parser>
+  </Parsers>
+  <Analyzers>
+    <Analyzer AnalyzerId="StyleCop.CSharp.LayoutRules">
+      <Rules>
+        <Rule Name="OpeningCurlyBracketsMustNotBeFollowedByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="ElementDocumentationHeadersMustNotBeFollowedByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="CodeMustNotContainMultipleBlankLinesInARow">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="ClosingCurlyBracketsMustNotBePrecededByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="OpeningCurlyBracketsMustNotBePrecededByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="ChainedStatementBlocksMustNotBePrecededByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="WhileDoFooterMustNotBePrecededByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="SingleLineCommentsMustNotBeFollowedByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="ClosingCurlyBracketMustBeFollowedByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="ElementDocumentationHeaderMustBePrecededByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="SingleLineCommentMustBePrecededByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="ElementsMustBeSeparatedByBlankLine">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="CodeMustNotContainBlankLinesAtStartOfFile">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+        <Rule Name="CodeMustNotContainBlankLinesAtEndOfFile">
+          <RuleSettings><BooleanProperty Name="Enabled">true</BooleanProperty></RuleSettings>
+        </Rule>
+      </Rules>
+    </Analyzer>
+  </Analyzers>
+</StyleCopSettings>
